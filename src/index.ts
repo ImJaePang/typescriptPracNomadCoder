@@ -3,7 +3,7 @@ abstract class User {
         protected firstName : string,
         protected lastName : string,
         protected nickName : string,
-    ) {}
+        ) {}
 
     abstract getNickName():void
 
