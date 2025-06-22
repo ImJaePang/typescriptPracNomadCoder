@@ -1,13 +1,27 @@
-type Team = "red" | "blue" | "yellow"
-
-
-interface Player {
-    nickName : string,
-    team: Team
+interface SStorage<T>{
+    [key:string] : T
 }
 
+class LocalStorage<T> {
+    private storage : SStorage<T> = {};
 
-const nico :Player = {
-    nickName : "nico"
-    ,team : "red"
+    set(key:string, value:T){
+        this.storage[key] = value;
+
+    }
+    remove(key:string){
+        delete this.storage[key]
+    }
+    get(key:string):T{
+        return this.storage[key]
+    }
+
+    clear(){
+        this.storage = {}
+    }
 }
+
+const stringStorage = new LocalStorage<string>;
+
+stringStorage.set("dragonball", "cool");
+stringStorage.get("dragonball");
