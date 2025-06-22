@@ -1,27 +1,8 @@
-interface SStorage<T>{
-    [key:string] : T
-}
+const hello = () => "h!!";
 
-class LocalStorage<T> {
-    private storage : SStorage<T> = {};
-
-    set(key:string, value:T){
-        this.storage[key] = value;
-
-    }
-    remove(key:string){
-        delete this.storage[key]
-    }
-    get(key:string):T{
-        return this.storage[key]
-    }
-
-    clear(){
-        this.storage = {}
+class Block {
+    constructor(private data: string) {}
+    static hello(){
+        return "hi";
     }
 }
-
-const stringStorage = new LocalStorage<string>;
-
-stringStorage.set("dragonball", "cool");
-stringStorage.get("dragonball");
